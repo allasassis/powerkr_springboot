@@ -42,6 +42,11 @@ public class TarefaService {
         return new DetalhesTarefaDTO(tarefa);
     }
 
+    public void excluirTarefa(Long id) {
+        verificarSeExiste(id);
+        tarefaRepository.deleteById(id);
+    }
+
     private Tarefa verificarSeExiste(Long id) {
         Optional<Tarefa> tarefa = tarefaRepository.findById(id);
 

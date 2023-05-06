@@ -40,4 +40,11 @@ public class TarefaController {
     public ResponseEntity<DetalhesTarefaDTO> atualizarTarefa(@PathVariable Long id, @RequestBody AtualizarTarefaDTO dto) {
         return ResponseEntity.ok(tarefaService.atualizarTarefa(id, dto));
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity excluirTarefa(@PathVariable Long id) {
+        tarefaService.excluirTarefa(id);
+        return ResponseEntity.noContent().build();
+    }
 }
