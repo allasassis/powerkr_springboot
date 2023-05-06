@@ -2,5 +2,7 @@ package com.avaliacao.powerkr.dto.tarefa;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record CriarTarefaDTO(@NotBlank String titulo, @NotBlank String descricao) {
+import java.time.LocalDateTime;
+
+public record CriarTarefaDTO(@NotBlank String titulo, @NotBlank String descricao, LocalDateTime dataConclusao) {
 }

@@ -1,5 +1,6 @@
 package com.avaliacao.powerkr.model;
 
+import com.avaliacao.powerkr.dto.tarefa.AtualizarTarefaDTO;
 import com.avaliacao.powerkr.dto.tarefa.CriarTarefaDTO;
 import jakarta.persistence.*;
 
@@ -30,6 +31,10 @@ public class Tarefa {
 
         this.dataCriacao = LocalDateTime.now();
         this.status = Status.ABERTA;
+
+        if (dto.dataConclusao() != null) {
+            this.dataConclusao = dto.dataConclusao();
+        }
     }
 
     public String getTitulo() {
@@ -50,5 +55,20 @@ public class Tarefa {
 
     public Status getStatus() {
         return status;
+    }
+
+    public void atualizar(AtualizarTarefaDTO dto) {
+        if (dto.titulo() != null) {
+            this.titulo = dto.titulo();
+        }
+        if (dto.descricao() != null) {
+            this.descricao = dto.descricao();
+        }
+        if (dto.status() != null) {
+            this.status = dto.status();
+        }
+        if (dto.dataConclusao() != null) {
+            this.dataConclusao = dto.dataConclusao();
+        }
     }
 }

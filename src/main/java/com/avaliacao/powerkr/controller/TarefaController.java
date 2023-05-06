@@ -1,14 +1,16 @@
 package com.avaliacao.powerkr.controller;
 
+import com.avaliacao.powerkr.dto.tarefa.AtualizarTarefaDTO;
 import com.avaliacao.powerkr.dto.tarefa.CriarTarefaDTO;
 import com.avaliacao.powerkr.dto.tarefa.DetalhesTarefaDTO;
+import com.avaliacao.powerkr.dto.tarefa.ListaTarefasDTO;
 import com.avaliacao.powerkr.service.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tarefa")
@@ -17,9 +19,25 @@ public class TarefaController {
     @Autowired
     private TarefaService tarefaService;
 
+    @GetMapping
+    public ResponseEntity<List<ListaTarefasDTO>> listarTarefas() {
+        return ResponseEntity.ok(tarefaService.listarTarefas());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DetalhesTarefaDTO> buscarTarefaPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(tarefaService.buscarPorId(id));
+    }
+
     @PostMapping
     @Transactional
-    public DetalhesTarefaDTO criarTarefa(@RequestBody CriarTarefaDTO dto) {
-        return tarefaService.criarTarefa(dto);
+    public ResponseEntity<DetalhesTarefaDTO> criarTarefa(@RequestBody CriarTarefaDTO dto) {
+        return ResponseEntity.status(201).body(tarefaService.criarTarefa(dto));
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DetalhesTarefaDTO> atualizarTarefa(@PathVariable Long id, @RequestBody AtualizarTarefaDTO dto) {
+        return ResponseEntity.ok(tarefaService.atualizarTarefa(id, dto));
     }
 }
