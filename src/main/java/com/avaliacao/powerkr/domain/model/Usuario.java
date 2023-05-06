@@ -1,5 +1,6 @@
 package com.avaliacao.powerkr.domain.model;
 
+import com.avaliacao.powerkr.domain.dto.usuario.AtualizarUsuarioDTO;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -34,6 +35,18 @@ public class Usuario implements UserDetails {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
     @Override
     public String getPassword() {
         return senha;
@@ -64,15 +77,16 @@ public class Usuario implements UserDetails {
         return true;
     }
 
-    public String getNome() {
-        return nome;
-    }
+    public void atualizar(AtualizarUsuarioDTO dto) {
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
+        if (dto.getNome() != null) {
+            this.nome = dto.getNome();
+        }
+        if (dto.getEmail() != null) {
+            this.email = dto.getEmail();
+        }
+        if (dto.getSenha() != null) {
+            this.senha = dto.getSenha();
+        }
     }
 }
