@@ -58,13 +58,17 @@ public class UsuarioService implements UserDetailsService {
         return new DetalhesUsuarioDTO(usuario);
     }
 
+    public void deletarUsuario(Long id) {
+        verificarSeExiste(id);
+        usuarioRepository.deleteById(id);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return usuarioRepository.findByEmail(email);
     }
 
     // Criptografando a senha e cadastrando um usuário novo no banco de dados
-
     private Usuario criptografarCadastro(CadastrarUsuarioDTO dto) {
         UserDetails login = usuarioRepository.findByEmail(dto.email());
 

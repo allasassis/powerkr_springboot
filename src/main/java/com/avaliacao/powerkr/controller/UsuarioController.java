@@ -46,12 +46,6 @@ public class UsuarioController {
         return ResponseEntity.status(201).body(token);
     }
 
-    @PutMapping("/{id}")
-    @Transactional
-    public ResponseEntity<DetalhesUsuarioDTO> atualizarUsuario(@PathVariable Long id, @RequestBody AtualizarUsuarioDTO dto) {
-        return ResponseEntity.ok(usuarioService.atualizarUsuario(id, dto));
-    }
-
     @PostMapping("/login")
     public ResponseEntity<DadosTokenJWT> efetuarLogin(@RequestBody EfetuarLoginDTO dto) {
 
@@ -59,6 +53,19 @@ public class UsuarioController {
         String token = tokenService.gerarToken((Usuario) authenticate.getPrincipal());
 
         return ResponseEntity.ok(new DadosTokenJWT(token));
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DetalhesUsuarioDTO> atualizarUsuario(@PathVariable Long id, @RequestBody AtualizarUsuarioDTO dto) {
+        return ResponseEntity.ok(usuarioService.atualizarUsuario(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deletarUsuario(@PathVariable Long id) {
+        usuarioService.deletarUsuario(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
