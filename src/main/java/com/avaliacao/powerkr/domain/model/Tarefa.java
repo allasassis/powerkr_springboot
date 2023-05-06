@@ -1,7 +1,7 @@
-package com.avaliacao.powerkr.model;
+package com.avaliacao.powerkr.domain.model;
 
-import com.avaliacao.powerkr.dto.tarefa.AtualizarTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.CriarTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.CriarTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.AtualizarTarefaDTO;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

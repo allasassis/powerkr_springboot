@@ -1,4 +1,4 @@
-package com.avaliacao.powerkr.model;
+package com.avaliacao.powerkr.domain.model;
 
 import jakarta.persistence.*;
 

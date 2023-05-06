@@ -1,12 +1,12 @@
-package com.avaliacao.powerkr.service;
+package com.avaliacao.powerkr.domain.service;
 
-import com.avaliacao.powerkr.dto.tarefa.AtualizarTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.CriarTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.DetalhesTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.ListaTarefasDTO;
-import com.avaliacao.powerkr.exception.ApiException;
-import com.avaliacao.powerkr.model.Tarefa;
-import com.avaliacao.powerkr.repository.TarefaRepository;
+import com.avaliacao.powerkr.domain.dto.tarefa.CriarTarefaDTO;
+import com.avaliacao.powerkr.domain.model.Tarefa;
+import com.avaliacao.powerkr.domain.dto.tarefa.AtualizarTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.DetalhesTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.ListaTarefasDTO;
+import com.avaliacao.powerkr.domain.exception.ApiException;
+import com.avaliacao.powerkr.domain.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

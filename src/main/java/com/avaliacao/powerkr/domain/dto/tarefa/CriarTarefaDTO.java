@@ -1,4 +1,4 @@
-package com.avaliacao.powerkr.dto.tarefa;
+package com.avaliacao.powerkr.domain.dto.tarefa;
 
 import jakarta.validation.constraints.NotBlank;
 

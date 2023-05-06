@@ -1,7 +1,7 @@
-package com.avaliacao.powerkr.dto.tarefa;
+package com.avaliacao.powerkr.domain.dto.tarefa;
 
-import com.avaliacao.powerkr.model.Status;
-import com.avaliacao.powerkr.model.Tarefa;
+import com.avaliacao.powerkr.domain.model.Tarefa;
+import com.avaliacao.powerkr.domain.model.Status;
 
 import java.time.LocalDateTime;
 

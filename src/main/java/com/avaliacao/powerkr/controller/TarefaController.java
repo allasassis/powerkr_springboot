@@ -1,10 +1,10 @@
 package com.avaliacao.powerkr.controller;
 
-import com.avaliacao.powerkr.dto.tarefa.AtualizarTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.CriarTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.DetalhesTarefaDTO;
-import com.avaliacao.powerkr.dto.tarefa.ListaTarefasDTO;
-import com.avaliacao.powerkr.service.TarefaService;
+import com.avaliacao.powerkr.domain.dto.tarefa.AtualizarTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.CriarTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.DetalhesTarefaDTO;
+import com.avaliacao.powerkr.domain.dto.tarefa.ListaTarefasDTO;
+import com.avaliacao.powerkr.domain.service.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

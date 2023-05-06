@@ -1,4 +1,4 @@
-package com.avaliacao.powerkr.exception;
+package com.avaliacao.powerkr.domain.exception;
 
 public class ApiException extends RuntimeException {
 
