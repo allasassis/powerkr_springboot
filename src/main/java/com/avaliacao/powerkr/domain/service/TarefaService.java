@@ -5,7 +5,7 @@ import com.avaliacao.powerkr.domain.model.Tarefa;
 import com.avaliacao.powerkr.domain.dto.tarefa.AtualizarTarefaDTO;
 import com.avaliacao.powerkr.domain.dto.tarefa.DetalhesTarefaDTO;
 import com.avaliacao.powerkr.domain.dto.tarefa.ListaTarefasDTO;
-import com.avaliacao.powerkr.domain.exception.ApiException;
+import com.avaliacao.powerkr.infra.exception.ApiException;
 import com.avaliacao.powerkr.domain.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

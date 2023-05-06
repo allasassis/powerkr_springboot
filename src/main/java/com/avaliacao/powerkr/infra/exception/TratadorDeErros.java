@@ -1,6 +1,5 @@
 package com.avaliacao.powerkr.infra.exception;
 
-import com.avaliacao.powerkr.domain.exception.ApiException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
