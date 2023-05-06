@@ -17,6 +17,6 @@ public class Tarefa {
     private LocalDateTime dataCriacao;
     private LocalDateTime dataConclusao;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Status status;
 }
