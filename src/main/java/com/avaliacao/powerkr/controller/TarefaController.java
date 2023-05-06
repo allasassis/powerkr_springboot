@@ -5,6 +5,7 @@ import com.avaliacao.powerkr.domain.dto.tarefa.CriarTarefaDTO;
 import com.avaliacao.powerkr.domain.dto.tarefa.DetalhesTarefaDTO;
 import com.avaliacao.powerkr.domain.dto.tarefa.ListaTarefasDTO;
 import com.avaliacao.powerkr.domain.service.TarefaService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tarefa")
+@SecurityRequirement(name = "bearer-key")
 public class TarefaController {
 
     @Autowired

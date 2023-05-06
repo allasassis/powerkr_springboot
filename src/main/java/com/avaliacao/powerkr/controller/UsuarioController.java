@@ -4,6 +4,7 @@ import com.avaliacao.powerkr.domain.dto.usuario.*;
 import com.avaliacao.powerkr.domain.model.Usuario;
 import com.avaliacao.powerkr.domain.service.UsuarioService;
 import com.avaliacao.powerkr.infra.security.TokenService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,11 +29,13 @@ public class UsuarioController {
     private TokenService tokenService;
 
     @GetMapping
+    @SecurityRequirement(name = "bearer-key")
     public ResponseEntity<List<ListaUsuariosDTO>> listarUsuarios() {
         return ResponseEntity.ok(usuarioService.listarUsuarios());
     }
 
     @GetMapping("/{id}")
+    @SecurityRequirement(name = "bearer-key")
     public ResponseEntity<DetalhesUsuarioDTO> buscarUsuarioPorId(@PathVariable Long id) {
         DetalhesUsuarioDTO usuario = usuarioService.findById(id);
         return ResponseEntity.ok().body(usuario);
@@ -57,12 +60,14 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     @Transactional
+    @SecurityRequirement(name = "bearer-key")
     public ResponseEntity<DetalhesUsuarioDTO> atualizarUsuario(@PathVariable Long id, @RequestBody AtualizarUsuarioDTO dto) {
         return ResponseEntity.ok(usuarioService.atualizarUsuario(id, dto));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
+    @SecurityRequirement(name = "bearer-key")
     public ResponseEntity deletarUsuario(@PathVariable Long id) {
         usuarioService.deletarUsuario(id);
         return ResponseEntity.noContent().build();

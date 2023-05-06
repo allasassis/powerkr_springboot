@@ -2,6 +2,7 @@ package com.avaliacao.powerkr.domain.model;
 
 import com.avaliacao.powerkr.domain.dto.tarefa.CriarTarefaDTO;
 import com.avaliacao.powerkr.domain.dto.tarefa.AtualizarTarefaDTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -16,7 +17,11 @@ public class Tarefa {
 
     private String titulo;
     private String descricao;
+
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dataCriacao;
+
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dataConclusao;
 
     @Enumerated(EnumType.STRING)
