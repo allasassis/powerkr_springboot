@@ -2,6 +2,8 @@
 
 API Restful com Java e Springboot para a 2ª etapa do processo seletivo da PowerKR. 
 
+![image](https://user-images.githubusercontent.com/88514585/236698372-08031aa9-0169-4562-ab2b-5835b2a4515e.png)
+
 
 ## Autenticação
 
