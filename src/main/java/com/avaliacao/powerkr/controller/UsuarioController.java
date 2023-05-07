@@ -29,7 +29,7 @@ public class UsuarioController {
     private TokenService tokenService;
 
     @GetMapping
-    @SecurityRequirement(name = "bearer-key")
+    @SecurityRequirement(name = "bearer-key") // SecurityRequirement diz pra documentação que esse método precisa de autenticação
     public ResponseEntity<List<ListaUsuariosDTO>> listarUsuarios() {
         return ResponseEntity.ok(usuarioService.listarUsuarios());
     }
@@ -37,6 +37,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     @SecurityRequirement(name = "bearer-key")
     public ResponseEntity<DetalhesUsuarioDTO> buscarUsuarioPorId(@PathVariable Long id) {
+
         DetalhesUsuarioDTO usuario = usuarioService.findById(id);
         return ResponseEntity.ok().body(usuario);
     }
@@ -44,8 +45,8 @@ public class UsuarioController {
     @PostMapping("/novo")
     @Transactional
     public ResponseEntity<DadosTokenJWT> cadastrarUsuario(@RequestBody CadastrarUsuarioDTO dto) {
-        DadosTokenJWT token = usuarioService.cadastrarUsuario(dto);
 
+        DadosTokenJWT token = usuarioService.cadastrarUsuario(dto);
         return ResponseEntity.status(201).body(token);
     }
 

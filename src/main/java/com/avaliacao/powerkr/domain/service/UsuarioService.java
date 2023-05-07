@@ -6,7 +6,6 @@ import com.avaliacao.powerkr.domain.repository.UsuarioRepository;
 import com.avaliacao.powerkr.infra.exception.ApiException;
 import com.avaliacao.powerkr.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
